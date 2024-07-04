@@ -16,9 +16,6 @@ jobs:
     # Same key-value pairs as in "Defining Our Workflow" section
     steps:
     
-    - name: Check style with Pylint
-      run: |
-        python3 -m pylint --fail-under=0 --reports=y inflammation
     - name: Checkout repository
       uses: actions/checkout@v4
 
@@ -32,6 +29,9 @@ jobs:
       run: |
         python3 -m pip install --upgrade pip
         python3 -m pip install -r requirements.txt
+    - name: Check style with Pylint
+      run: |
+        python3 -m pylint --fail-under=0 --reports=y inflammation
     - name: Test with PyTest
       run: |
         python3 -m pytest --cov=catchment.models tests/test_models.py
