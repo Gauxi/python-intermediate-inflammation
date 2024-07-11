@@ -6,6 +6,7 @@ import os
 
 from inflammation import models, views
 from inflammation.compute_data import analyse_data
+from inflammation.compute_data import CSVDataSource
 
 
 def main(args):
